@@ -1,1 +1,1 @@
-worker: nodemon main.py
+worker: python main.py
