@@ -1,12 +1,12 @@
 from discord.ext import commands
 
-class Test(commands.Cog):
+class Basic(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
     @commands.command()
-    async def hello(self, ctx, *args):
-        await ctx.send(" ".join(args))
+    async def ping(self, ctx):
+        await ctx.send("Pong")
 
 def setup(bot):
-    bot.add_cog(Test(bot))
+    bot.add_cog(Basic(bot))

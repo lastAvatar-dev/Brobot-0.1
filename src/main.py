@@ -1,18 +1,14 @@
-import discord
+from discord.ext import commands
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as {0}!'.format(self.user))
+bot = commands.Bot(command_prefix="!")
 
-    async def on_message(self, message):
-        print('Message from {0.author}: {0.content}'.format(message))
+for filename in os.listdir("./src/cogs/"):
+    if filename.endswith(".py") and filename != "__init__.py":
+        bot.load_extension(f'cogs.{filename[:-3]}')
 
-        if message.author.bot:
-            return
-        await message.channel.send("Hello from Bot")
 
-client = MyClient()
-client.run(os.getenv('TOKEN'))
+bot.run(os.getenv('DISCORD_BOT_TOKEN'))
