@@ -4,11 +4,6 @@ import random
 class Gamble(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, ex):
-        print(ctx.message.author, ctx.message.content,"  ->ex  ", ex)
-        await ctx.send(ex)
         
     @commands.command(brief="   Get a random number.")
     async def random(self, ctx):
