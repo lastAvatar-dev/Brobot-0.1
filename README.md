@@ -1,2 +1,1 @@
-# Brobot-0.1
- 
+brobot-discordpy v0.1
